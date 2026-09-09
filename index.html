@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScholarLink — Global Scholarship Finder</title>
+<meta name="description" content="School-managed scholarship and university matching portal.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div id="toast"></div>
+<header class="nav">
+  <div class="brand" onclick="show('home')">
+    <div class="logo"><span>✦</span><div class="book"></div><div class="cap">◆</div></div>
+    <div><b>Scholar<span>Link</span></b><small>Your Dreams • Our Mission</small></div>
+  </div>
+  <nav>
+    <button onclick="show('home')">Home</button><button onclick="show('universities')">Universities</button>
+    <button onclick="show('scholarships')">Scholarships</button><button onclick="show('dashboard')">Dashboard</button>
+  </nav>
+  <div id="authButtons"><button class="btn ghost" onclick="openModal('login')">Login</button><button class="btn" onclick="openModal('register')">Register</button></div>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="heroCopy">
+      <div class="pill">🌍 Global opportunities for students</div>
+      <h1>Find Your Scholarship.<br><span>Build Your Future.</span></h1>
+      <p>Enter your education, field and preferred countries. ScholarLink helps you discover universities and scholarship sources that fit your profile.</p>
+      <div class="searchCard">
+        <select id="homeLevel"><option value="">Study level</option><option>High School</option><option>Bachelor</option><option>Master</option><option>Doctorate</option></select>
+        <input id="homeField" placeholder="Field e.g. Computer Science">
+        <select id="homeCountry"><option value="">Any country</option></select>
+        <button class="btn" onclick="homeSearch()">Search matches →</button>
+      </div>
+      <div class="miniTrust"><span>✓ 30 countries</span><span>✓ 60+ universities</span><span>✓ Official-source links</span></div>
+    </div>
+    <div class="globeCard"><div class="globe">🌐</div><div class="orbit o1"></div><div class="orbit o2"></div><div class="float f1">🎓</div><div class="float f2">🇩🇪</div><div class="float f3">🇨🇦</div><div class="float f4">🇬🇧</div></div>
+  </div>
+  <section class="stats"><div><b>30+</b><span>Countries</span></div><div><b>60+</b><span>Universities</span></div><div><b>30</b><span>Official study sources</span></div><div><b>1</b><span>Student profile</span></div></section>
+  <section class="section"><div class="sectionHead"><div><span class="eyebrow">Explore</span><h2>Popular study destinations</h2></div><button class="linkBtn" onclick="show('universities')">View all →</button></div><div id="countryCards" class="cards"></div></section>
+  <section class="how"><div><span class="eyebrow">Simple process</span><h2>How ScholarLink works</h2><div class="steps"><div><i>1</i><b>Create profile</b><p>Add your education, marks and interests.</p></div><div><i>2</i><b>Get matches</b><p>We score opportunities against your profile.</p></div><div><i>3</i><b>Review sources</b><p>Open official university and scholarship pages.</p></div><div><i>4</i><b>Apply</b><p>Follow the institution's official process.</p></div></div></div></section>
+</section>
+
+<section id="universities" class="page">
+  <div class="pageTitle"><span class="eyebrow">University directory</span><h1>Explore universities worldwide</h1><p>Search the seeded directory and open each university's official website.</p></div>
+  <div class="filters"><input id="uQ" placeholder="Search university or field…"><select id="uCountry"><option value="">All countries</option></select><select id="uLevel"><option value="">All levels</option><option>Bachelor</option><option>Master</option><option>Doctorate</option></select><button class="btn" onclick="loadUniversities()">Search</button></div>
+  <div id="universityGrid" class="grid"></div>
+</section>
+
+<section id="scholarships" class="page">
+  <div class="pageTitle"><span class="eyebrow">Official-source directory</span><h1>Scholarship & study portals</h1><p>Use these government or recognized study portals to verify current deadlines, eligibility and funding.</p></div>
+  <div id="sourceGrid" class="grid"></div>
+</section>
+
+<section id="dashboard" class="page">
+  <div class="pageTitle"><span class="eyebrow">Student dashboard</span><h1>Your personalized matches</h1><p id="dashIntro">Log in to create your student profile.</p></div>
+  <div id="dashContent"></div>
+</section>
+</main>
+
+<footer><div class="brand"><div class="logo small"><span>✦</span><div class="book"></div><div class="cap">◆</div></div><div><b>Scholar<span>Link</span></b><small>Your Dreams • Our Mission</small></div></div><div>For school use • Protect student information • Verify every opportunity</div><div>Created by <b>Saeed Khan</b></div></footer>
+
+<div id="modal" class="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<script src="/app.js"></script>
+</body></html>
